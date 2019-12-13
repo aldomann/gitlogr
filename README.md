@@ -1,5 +1,5 @@
 
-# gitlogr <!-- <img src="man/figures/logo.png" align="right" width="120" /> -->
+# gitlogr <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
 
