@@ -26,7 +26,8 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
       "--pretty='%Cgreen %cI ## %Creset %s'"
     ),
     intern = TRUE
-  )
+  ) %>%
+    stringr::str_trim(side = "left")
 
   if (!raw) {
     git_commits <- data.frame(
