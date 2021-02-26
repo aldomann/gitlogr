@@ -1,23 +1,23 @@
-#' Get Git commit history
+#' Get Git Commit History
 #'
 #' Get your Git commit history as a data frame or raw text between two specified dates
 #'
-#' @param from Starting date
-#' @param to Ending date
-#' @param author Optional author of the commits
-#' @param raw Whether the output is a raw string vector (TRUE), or a data frame (FALSE)
-#' @param path Optional path of your Git reporitory
+#' @param from Starting date.
+#' @param to Ending date.
+#' @param author Optional author of the commits.
+#' @param raw Whether the output is a raw string vector (TRUE), or a data frame (FALSE).
+#' @param path Optional path of your Git reporitory.
 #'
 #' @keywords git
-#' @export
 #' @examples
 #' get_git_commit_history(from = "2019-06-01")
-
+#' @importFrom rlang .data
+#' @export
 get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw = FALSE) {
   git_commits <- system(
     paste(
       "git",
-      ifelse(is.null(path), "", paste0("--git-dir ", path %>% stringr::str_remove("/$"), "/.git")),
+      ifelse(is.null(path), "", paste0("--git-dir ", stringr::str_remove(path, "/$"), "/.git")),
       "log",
       ifelse(is.null(author), "", paste("--author", author)),
       "--since", lubridate::as_date(from) - 1,
