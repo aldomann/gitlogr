@@ -26,16 +26,20 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
       "--pretty='%Cgreen %cI ## %Creset %s'"
     ),
     intern = TRUE
-  ) %>%
-    stringr::str_trim(side = "left")
+  )
 
   if (!raw) {
     git_commits <- data.frame(
       lines = git_commits
     ) %>%
-      tidyr::separate("lines", c("date", "message"), sep = "##") %>%
+      tidyr::separate(
+        col = .data$lines,
+        into = c("date", "message"),
+        sep = "##"
+      ) %>%
       dplyr::mutate(
-        date = lubridate::ymd_hms(date)
+        date = lubridate::ymd_hms(.data$date),
+        message = stringr::str_trim(.data$message, side = "left")
       )
   }
 
