@@ -1,6 +1,6 @@
 Package: gitlogr
 Title: Process Git Logs from Repositories
-Version: 1.1.1
+Version: 1.1.2
 Authors@R: 
     person(given = "Alfredo",
            family = "Hernández",
@@ -13,9 +13,11 @@ License: GPL-3
 URL: https://github.com/aldomann/gitlogr
 BugReports: https://github.com/aldomann/gitlogr/issues
 Imports: 
+    clipr,
     dplyr,
     lubridate,
     magrittr,
+    rlang,
     stringr,
     tidyr
 Encoding: UTF-8
