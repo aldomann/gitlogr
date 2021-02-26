@@ -12,11 +12,16 @@ knitr::opts_chunk$set(
 # gitlogr <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/gitlogr)](https://cran.r-project.org/package=gitlogr)
+`r badgecreatr::badge_lifecycle("stable")`
+<!-- [![R build status](https://github.com/aldomann/<package>/workflows/R-CMD-check/badge.svg)](https://github.com/aldomann/<package>/actions) -->
+<!-- [![Codecov test coverage](https://codecov.io/gh/aldomann/<package>/branch/master/graph/badge.svg)](https://codecov.io/gh/aldomann/<package>?branch=master) -->
+<!-- [![pkgdown status](https://github.com/aldomann/<package>/workflows/pkgdown/badge.svg)](https://aldomann.github.io/<package>/) -->
 <!-- badges: end -->
 
 ## Overview
 
-gitlogr aims to provide a clean way to get your Git commit history and process it in R.
+{gitlogr} aims to provide a clean way to get your Git commit history and process it in R.
 
 ## Installation
 
@@ -27,9 +32,29 @@ gitlogr aims to provide a clean way to get your Git commit history and process i
 <!-- ``` -->
 
 <!-- And  -->
-The development version from [GitHub](https://github.com/) with:
+The development version can be installed from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("aldomann/gitlogr")
 ```
+
+## Examples
+
+```{r include=FALSE}
+library(dplyr)
+```
+
+```{r, message=FALSE}
+library(gitlogr)
+```
+
+```{r}
+get_git_commit_count(from = "2019-12-13", to = "2019-12-15")
+```
+
+```{r}
+get_git_commit_history(from = "2019-12-13", to = "2019-12-15") %>% 
+  knitr::kable()
+```
+
