@@ -2,18 +2,18 @@
 % Please edit documentation in R/get_git_commit_count.R
 \name{get_git_commit_count}
 \alias{get_git_commit_count}
-\title{Get Git commit count}
+\title{Get Git Commit Count}
 \usage{
 get_git_commit_count(from, to = NULL, author = NULL, path = NULL)
 }
 \arguments{
-\item{from}{Date to count commits from}
+\item{from}{Date to count commits from.}
 
-\item{to}{Optional ending date if you want to count commits in a date range}
+\item{to}{Optional ending date if you want to count commits in a date range.}
 
-\item{author}{Optional author of the commits}
+\item{author}{Optional author of the commits.}
 
-\item{path}{Optional path of your Git reporitory}
+\item{path}{Optional path of your Git reporitory.}
 }
 \description{
 Get your Git commit count in a single date or range of dates

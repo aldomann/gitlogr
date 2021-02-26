@@ -2,26 +2,29 @@
 % Please edit documentation in R/get_git_commit_history.R
 \name{get_git_commit_history}
 \alias{get_git_commit_history}
-\title{Get Git commit history}
+\title{Get Git Commit History}
 \usage{
 get_git_commit_history(
   from,
   to = Sys.Date(),
   author = NULL,
   path = NULL,
-  raw = FALSE
+  raw = FALSE,
+  clipboard = FALSE
 )
 }
 \arguments{
-\item{from}{Starting date}
+\item{from}{Starting date.}
 
-\item{to}{Ending date}
+\item{to}{Ending date.}
 
-\item{author}{Optional author of the commits}
+\item{author}{Optional author of the commits.}
 
-\item{path}{Optional path of your Git reporitory}
+\item{path}{Optional path of your Git reporitory.}
 
-\item{raw}{Whether the output is a raw string vector (TRUE), or a data frame (FALSE)}
+\item{raw}{Whether the output is a raw string vector (TRUE), or a data frame (FALSE).}
+
+\item{clipboard}{If \code{TRUE}, the output will also be copied into the clipboard.}
 }
 \description{
 Get your Git commit history as a data frame or raw text between two specified dates
