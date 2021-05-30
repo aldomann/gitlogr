@@ -13,18 +13,18 @@ get_git_commit_history(
 )
 }
 \arguments{
-\item{from}{Starting date}
+\item{from}{Starting date.}
 
-\item{to}{Ending date}
+\item{to}{Ending date.}
 
-\item{author}{Optional author of the commits}
+\item{author}{Optional author of the commits.}
 
-\item{path}{Optional path of your Git reporitory}
+\item{path}{Optional path of your Git repository.}
 
-\item{raw}{Whether the output is a raw string vector (TRUE), or a data frame (FALSE)}
+\item{raw}{Whether the output is a raw string vector (\code{TRUE}), or a data frame (\code{FALSE}).}
 }
 \description{
-Get your Git commit history as a data frame or raw text between two specified dates
+Get your Git commit history as a data frame or raw text between two specified dates.
 }
 \examples{
 get_git_commit_history(from = "2019-06-01")
