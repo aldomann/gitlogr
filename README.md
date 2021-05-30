@@ -2,11 +2,17 @@
 # gitlogr <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/gitlogr)](https://cran.r-project.org/package=gitlogr)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
+<!-- [![R build status](https://github.com/aldomann/<package>/workflows/R-CMD-check/badge.svg)](https://github.com/aldomann/<package>/actions) -->
+<!-- [![Codecov test coverage](https://codecov.io/gh/aldomann/<package>/branch/master/graph/badge.svg)](https://codecov.io/gh/aldomann/<package>?branch=master) -->
+<!-- [![pkgdown status](https://github.com/aldomann/<package>/workflows/pkgdown/badge.svg)](https://aldomann.github.io/<package>/) -->
 <!-- badges: end -->
 
 ## Overview
 
-`{gitlogr}` aims to provide an easy way to get your Git commit history
+`{gitlogr}` aims to provide a clean way to get your Git commit history
 and process it in R.
 
 ## Installation
@@ -47,6 +53,7 @@ get_git_commit_history(from = "2021-01-01") %>%
 | 2021-05-30 16:53:37 | Using rlang::.data                                                |
 | 2021-05-30 17:11:38 | Updated documentation                                             |
 | 2021-05-30 17:11:47 | Bump version to 1.1.2                                             |
+| 2021-05-30 17:12:16 | Updated README                                                    |
 
 The `get_git_commit_count()` function is a wrapper of
 `get_git_commit_history()` that can be used to calculate the amount of

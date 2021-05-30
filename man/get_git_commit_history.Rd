@@ -9,7 +9,8 @@ get_git_commit_history(
   to = Sys.Date(),
   author = NULL,
   path = NULL,
-  raw = FALSE
+  raw = FALSE,
+  clipboard = FALSE
 )
 }
 \arguments{
@@ -22,6 +23,8 @@ get_git_commit_history(
 \item{path}{Optional path of your Git repository.}
 
 \item{raw}{Whether the output is a raw string vector (\code{TRUE}), or a data frame (\code{FALSE}).}
+
+\item{clipboard}{If \code{TRUE}, the output will also be copied into the clipboard.}
 }
 \description{
 Get your Git commit history as a data frame or raw text between two specified dates.

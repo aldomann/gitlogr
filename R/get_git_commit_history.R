@@ -5,15 +5,16 @@
 #' @param from Starting date.
 #' @param to Ending date.
 #' @param author Optional author of the commits.
-#' @param raw Whether the output is a raw string vector (\code{TRUE}), or a data frame (\code{FALSE}).
 #' @param path Optional path of your Git repository.
+#' @param raw Whether the output is a raw string vector (\code{TRUE}), or a data frame (\code{FALSE}).
+#' @param clipboard If \code{TRUE}, the output will also be copied into the clipboard.
 #'
 #' @keywords git
 #' @examples
 #' get_git_commit_history(from = "2019-06-01")
 #' @importFrom rlang .data
 #' @export
-get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw = FALSE) {
+get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw = FALSE, clipboard = FALSE) {
 
   # Parse path
   path <- ifelse(
@@ -61,6 +62,10 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
       dplyr::filter(
         dplyr::between(as.Date(.data$date), as.Date(from), as.Date(to))
       )
+  }
+
+  if (clipboard) {
+    clipr::write_clip(git_commits)
   }
 
   return(git_commits)

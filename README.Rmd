@@ -12,11 +12,16 @@ knitr::opts_chunk$set(
 # gitlogr <img src="man/figures/logo.png" align="right" width="120" />
 
 <!-- badges: start -->
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/gitlogr)](https://cran.r-project.org/package=gitlogr)
+`r badgecreatr::badge_lifecycle("stable")`
+<!-- [![R build status](https://github.com/aldomann/<package>/workflows/R-CMD-check/badge.svg)](https://github.com/aldomann/<package>/actions) -->
+<!-- [![Codecov test coverage](https://codecov.io/gh/aldomann/<package>/branch/master/graph/badge.svg)](https://codecov.io/gh/aldomann/<package>?branch=master) -->
+<!-- [![pkgdown status](https://github.com/aldomann/<package>/workflows/pkgdown/badge.svg)](https://aldomann.github.io/<package>/) -->
 <!-- badges: end -->
 
 ## Overview
 
-`{gitlogr}` aims to provide an easy way to get your Git commit history and process it in R.
+`{gitlogr}` aims to provide a clean way to get your Git commit history and process it in R.
 
 ## Installation
 
