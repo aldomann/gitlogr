@@ -17,6 +17,7 @@ Imports:
     glue,
     lubridate,
     magrittr,
+    rlang,
     stringr,
     tidyr
 Encoding: UTF-8
