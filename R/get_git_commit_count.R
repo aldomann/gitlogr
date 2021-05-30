@@ -11,14 +11,7 @@
 #' @export
 #' @examples
 #' get_git_commit_count(from = "2019-06-01")
-get_git_commit_count <- function(from, to = NULL, author = NULL, path = NULL) {
-  if (is.null(to)) {
-    date_range <- from
-  } else {
-    date_range <- seq(as.Date(from), as.Date(to), 1) %>%
-      as.character()
-  }
-
+get_git_commit_count <- function(from, to = Sys.Date(), author = NULL, path = NULL) {
   commit_count <- get_git_commit_history(
     from = from,
     to = to,
@@ -28,7 +21,9 @@ get_git_commit_count <- function(from, to = NULL, author = NULL, path = NULL) {
     tidyr::separate(date, into = c("date", "time"), sep = " ") %>%
     dplyr::group_by(date) %>%
     dplyr::summarise("count" = dplyr::n()) %>%
-    dplyr::filter(date %in% date_range) %>%
+    dplyr::filter(
+      dplyr::between(as.Date(date), as.Date(from), as.Date(to))
+    ) %>%
     dplyr::pull("count") %>%
     sum()
 

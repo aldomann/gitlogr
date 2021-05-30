@@ -39,9 +39,9 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
     " --reverse",
     " --pretty='%Cgreen %cI ## %Creset %s'"
   )
-
   message(call)
 
+  # Get commits
   git_commits <- system(call, intern = TRUE) %>%
     stringr::str_trim(side = "left")
 
@@ -57,6 +57,9 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
       dplyr::mutate(
         date = lubridate::ymd_hms(date),
         message = stringr::str_trim(message, side = "left")
+      ) %>%
+      dplyr::filter(
+        dplyr::between(as.Date(date), as.Date(from), as.Date(to))
       )
   }
 
