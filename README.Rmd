@@ -40,19 +40,15 @@ devtools::install_github("aldomann/gitlogr")
 
 ## Examples
 
-```{r}
-library(gitlogr)
-```
-
-The main function, `get_git_commit_history()`, allows to quickly parse the results of `git log` into an R data frame.
+The main function, `get_history()`, allows to quickly parse the results of `git log` into an R data frame.
 
 ```{r history}
-get_git_commit_history(from = "2021-01-01") %>% 
+gitlogr::get_history(from = "2021-02-01", to = "2021-02-28") %>% 
   knitr::kable()
 ```
 
-The `get_git_commit_count()` function is a wrapper of `get_git_commit_history()` that can be used to calculate the amount of commits done in a certain date range.
+The `count_commits()` function is a wrapper of `get_history()` that can be used to calculate the amount of commits done in a certain date range.
 
 ```{r count}
-get_git_commit_count(from = "2019-12-01", to = "2019-12-31")
+gitlogr::count_commits(from = "2019-12-01", to = "2019-12-31")
 ```

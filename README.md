@@ -36,30 +36,27 @@ devtools::install_github("aldomann/gitlogr")
 library(gitlogr)
 ```
 
-The main function, `get_git_commit_history()`, allows to quickly parse
-the results of `git log` into an R data frame.
+The main function, `get_history()`, allows to quickly parse the results
+of `git log` into an R data frame.
 
 ``` r
-get_git_commit_history(from = "2021-01-01") %>% 
+gitlogr::get_history(from = "2021-02-01", to = "2021-02-28") %>% 
   knitr::kable()
 ```
 
-| date                | message                                                           |
-|:--------------------|:------------------------------------------------------------------|
-| 2021-05-30 15:57:19 | Added {glue} as a dependency                                      |
-| 2021-05-30 15:59:35 | get_git_commit_history() uses {glue} for constructing system call |
-| 2021-05-30 15:59:58 | Minor namespace cleanup                                           |
-| 2021-05-30 16:22:28 | Improved data filtering using dplyr::between()                    |
-| 2021-05-30 16:53:37 | Using rlang::.data                                                |
-| 2021-05-30 17:11:38 | Updated documentation                                             |
-| 2021-05-30 17:11:47 | Bump version to 1.1.2                                             |
-| 2021-05-30 17:12:16 | Updated README                                                    |
+| date                | message                                                          |
+|:--------------------|:-----------------------------------------------------------------|
+| 2021-02-26 10:10:06 | Fixed message left trimming in get_git_commit_history() function |
+| 2021-02-26 10:24:05 | Minor refactoring and proper usage of rlang::.data               |
+| 2021-02-26 10:24:58 | Added clipboard parameter to get_git_commit_history() function   |
+| 2021-02-26 10:25:36 | Added examples and badges to README file                         |
+| 2021-02-26 10:25:46 | Updated documentation                                            |
+| 2021-02-26 10:26:01 | Version bump to v1.1.2                                           |
 
-The `get_git_commit_count()` function is a wrapper of
-`get_git_commit_history()` that can be used to calculate the amount of
-commits done in a certain date range.
+The `count_commits()` function is a wrapper of `get_history()` that can
+be used to calculate the amount of commits done in a certain date range.
 
 ``` r
-get_git_commit_count(from = "2019-12-01", to = "2019-12-31")
+gitlogr::count_commits(from = "2019-12-01", to = "2019-12-31")
 #> [1] 9
 ```
