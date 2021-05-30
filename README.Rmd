@@ -16,20 +16,38 @@ knitr::opts_chunk$set(
 
 ## Overview
 
-gitlogr aims to provide a clean way to get your Git commit history and process it in R.
+`{gitlogr}` aims to provide an easy way to get your Git commit history and process it in R.
 
 ## Installation
 
-<!-- You can install the released version of gitlogr from [CRAN](https://CRAN.R-project.org) with: -->
+<!-- You can install the released version of {gitlogr} from [CRAN](https://CRAN.R-project.org) with: -->
 
 <!-- ``` r -->
 <!-- install.packages("gitlogr") -->
 <!-- ``` -->
 
-<!-- And  -->
-The development version from [GitHub](https://github.com/) with:
+The development version can be installed from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
 devtools::install_github("aldomann/gitlogr")
+```
+
+## Examples
+
+```{r}
+library(gitlogr)
+```
+
+The main function, `get_git_commit_history()`, allows to quickly parse the results of `git log` into an R data frame.
+
+```{r history}
+get_git_commit_history(from = "2021-01-01") %>% 
+  knitr::kable()
+```
+
+The `get_git_commit_count()` function is a wrapper of `get_git_commit_history()` that can be used to calculate the amount of commits done in a certain date range.
+
+```{r count}
+get_git_commit_count(from = "2019-12-01", to = "2019-12-31")
 ```
