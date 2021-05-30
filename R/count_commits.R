@@ -9,10 +9,10 @@
 #'
 #' @keywords git
 #' @examples
-#' get_git_commit_count(from = "2019-06-01")
+#' count_commits(from = "2019-06-01")
 #' @importFrom rlang .data
 #' @export
-get_git_commit_count <- function(from, to = Sys.Date(), author = NULL, path = NULL) {
+count_commits <- function(from, to = Sys.Date(), author = NULL, path = NULL) {
   commit_count <- get_git_commit_history(
     from = from,
     to = to,
@@ -34,3 +34,8 @@ get_git_commit_count <- function(from, to = Sys.Date(), author = NULL, path = NU
 
   return(commit_count)
 }
+
+
+#' @rdname count_commits
+#' @export
+get_git_commit_count <- count_commits

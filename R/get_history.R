@@ -11,10 +11,10 @@
 #'
 #' @keywords git
 #' @examples
-#' get_git_commit_history(from = "2019-06-01")
+#' get_history(from = "2019-06-01")
 #' @importFrom rlang .data
 #' @export
-get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw = FALSE, clipboard = FALSE) {
+get_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw = FALSE, clipboard = FALSE) {
 
   # Parse path
   path <- ifelse(
@@ -70,3 +70,7 @@ get_git_commit_history <- function(from, to = Sys.Date(), author = NULL, path = 
 
   return(git_commits)
 }
+
+#' @rdname get_history
+#' @export
+get_git_commit_history <- get_history
