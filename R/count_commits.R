@@ -12,8 +12,12 @@
 #' count_commits(from = "2019-06-01")
 #' @importFrom rlang .data
 #' @export
-count_commits <- function(from, to = Sys.Date(), author = NULL, path = NULL) {
-  commit_count <- get_git_commit_history(
+count_commits <- function(from, to = NULL, author = NULL, path = NULL) {
+  if (is.null(to)) {
+    to <- from
+  }
+
+  commit_count <- get_history(
     from = from,
     to = to,
     author = author,

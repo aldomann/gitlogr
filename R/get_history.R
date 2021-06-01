@@ -37,7 +37,7 @@ get_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw =
     " log",
     author,
     " --since {lubridate::as_date(from) - 1}",
-    " --until {to}",
+    " --until {lubridate::as_date(from) + 1}",
     " --reverse",
     " --pretty='%Cgreen %cI ## %Creset %s'"
   )
@@ -61,7 +61,8 @@ get_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw =
       ) %>%
       dplyr::filter(
         dplyr::between(as.Date(.data$date), as.Date(from), as.Date(to))
-      )
+      ) %>%
+      dplyr::as_tibble()
   }
 
   if (clipboard) {
