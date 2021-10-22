@@ -37,7 +37,7 @@ get_history <- function(from, to = Sys.Date(), author = NULL, path = NULL, raw =
     " log",
     author,
     " --since {lubridate::as_date(from) - 1}",
-    " --until {lubridate::as_date(from) + 1}",
+    " --until {lubridate::as_date(to) + 1}",
     " --reverse",
     " --pretty='%Cgreen %cI ## %Creset %s'"
   )

@@ -1,6 +1,6 @@
 Package: gitlogr
 Title: Process Git Logs from Repositories
-Version: 1.2.1
+Version: 1.2.1.9000
 Authors@R: 
     person(given = "Alfredo",
            family = "Hernández",
